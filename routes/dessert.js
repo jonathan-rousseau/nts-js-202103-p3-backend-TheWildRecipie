@@ -7,7 +7,7 @@ const pool = require('../config/mysql');
 
 router.get('/', function (req, res) {
   pool.query(
-    'SELECT * FROM recipie JOIN category ON recipie.category_id = category.id WHERE category_id=2',
+    'SELECT * FROM recipie WHERE category_id=2',
     function (error, result) {
       if (error) {
         res.status(500).send(error);
