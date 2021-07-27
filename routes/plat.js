@@ -23,7 +23,6 @@ router.get('/:id', (request, response) => {
   pool.query('SELECT * FROM recipie WHERE id=?', [id], (error, result) => {
     if (error) {
       response.status(500).send(error);
-      console.log(error);
     } else if (result.length > 0) {
       response.send(result[0]);
     } else {
@@ -40,7 +39,6 @@ router.post('/', (request, response) => {
     (error, result) => {
       if (error) {
         response.status(500).send(error);
-        console.log(error);
       } else {
         response.status(201).send({ id: result.insertId, ...plat });
       }

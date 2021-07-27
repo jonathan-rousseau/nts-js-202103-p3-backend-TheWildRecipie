@@ -10,6 +10,7 @@ router.get('/', function (req, res) {
     'SELECT * FROM recipie WHERE category_id=2',
     function (error, result) {
       if (error) {
+        console.log(error);
         res.status(500).send(error);
         console.log(error);
       } else {
