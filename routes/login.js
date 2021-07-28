@@ -24,10 +24,11 @@ router.post('/', (req, res) => {
         const user = {
           id: result[0].id,
           email,
+          role: result[0].role,
           password: 'hidden,',
         };
         const token = jwt.sign(
-          { id: user.id, email: user.email },
+          { id: user.id, email: user.email, admin: user.role === 'ADMIN' },
           JWT_AUTH_SECRET,
           {
             expiresIn: 10000,
